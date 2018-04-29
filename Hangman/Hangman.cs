@@ -12,31 +12,23 @@ namespace Hangman
 
         bool _isGameOver;
         int _guessesLeft;
-        List<string> _wordList;
+        List<string> _wordList = new List<string>();
         string _currentWord;
-        Random _random;
 
         public Hangman()
         {
             InitializeComponent();
-
-            _isGameOver = false;
-            _guessesLeft = MAX_GUESSES;
-            _wordList = new List<string>();
-            _currentWord = String.Empty;
-            _random = new Random();
-
             ReadWordFile();
         }
 
         void PickRandomWord()
         {
-            _currentWord = _wordList[_random.Next(_wordList.Count)];
+            _currentWord = _wordList[new Random().Next(_wordList.Count)];
         }
 
         void ReadWordFile()
         {
-            // read the "words.txt" file and store the words in an array of strings
+            // read the "words.txt" file and store the lines in a list
             _wordList.AddRange(File.ReadAllLines("words.txt"));
         }
 
@@ -61,12 +53,12 @@ namespace Hangman
         
         private void UpdateAvailableWordsLabel()
         {
-            labelAvailableWords.Text = $"Available words: {_wordList.Count - 1}";
+            labelAvailableWords.Text = $"Available words: { _wordList.Count - 1 }";
         }
 
         private void UpdateGuessesLeftLabel()
         {
-            labelGuessesLeft.Text = $"Guesses left: {_guessesLeft}";
+            labelGuessesLeft.Text = $"Guesses left: { _guessesLeft }";
         }
 
         // event handlers
@@ -79,6 +71,7 @@ namespace Hangman
                 UpdateAvailableWordsLabel();
             }
 
+            // reset variables to their default state
             _isGameOver = false;
             _guessesLeft = MAX_GUESSES;
             _currentWord = String.Empty;
@@ -90,11 +83,13 @@ namespace Hangman
             // fill the word label with '-' characters
             ResetWordLabel();
 
+            // disable Next button if no words left
             buttonNextWord.Enabled = _wordList.Count > 1;
         }
 
         private void Hangman_KeyPress(object sender, KeyPressEventArgs e)
         {
+            // game is over, don't do anything
             if (_isGameOver)
                 return;
 

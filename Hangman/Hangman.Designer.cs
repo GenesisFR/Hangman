@@ -40,7 +40,7 @@
             this.labelGuessesLeft.AutoSize = true;
             this.labelGuessesLeft.BackColor = System.Drawing.SystemColors.Control;
             this.labelGuessesLeft.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelGuessesLeft.Location = new System.Drawing.Point(10, 10);
+            this.labelGuessesLeft.Location = new System.Drawing.Point(9, 6);
             this.labelGuessesLeft.Name = "labelGuessesLeft";
             this.labelGuessesLeft.Size = new System.Drawing.Size(77, 13);
             this.labelGuessesLeft.TabIndex = 0;
@@ -88,7 +88,7 @@
             this.labelAvailableWords.AutoSize = true;
             this.labelAvailableWords.BackColor = System.Drawing.SystemColors.Control;
             this.labelAvailableWords.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelAvailableWords.Location = new System.Drawing.Point(690, 132);
+            this.labelAvailableWords.Location = new System.Drawing.Point(351, 6);
             this.labelAvailableWords.Name = "labelAvailableWords";
             this.labelAvailableWords.Size = new System.Drawing.Size(93, 13);
             this.labelAvailableWords.TabIndex = 4;
@@ -104,6 +104,7 @@
             this.Controls.Add(this.buttonNextWord);
             this.Controls.Add(this.labelWord);
             this.Controls.Add(this.labelGuessesLeft);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.KeyPreview = true;
             this.MaximizeBox = false;
             this.Name = "Hangman";
